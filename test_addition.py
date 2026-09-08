@@ -1,12 +1,3 @@
-# def test_addition():
-#     a = 5
-#     b = 10
-#     expected = 15
-
-#     actual = a + b
-
-#     assert actual == expected
-
 import addition
 
 assert addition.add(5, 10) == 15
