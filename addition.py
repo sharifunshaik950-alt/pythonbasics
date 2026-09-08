@@ -1,4 +1,2 @@
-a=5
-b=10
-c=a+b
-print(c)
+def add(a, b):
+    return a + b
