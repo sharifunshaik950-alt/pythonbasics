@@ -9,7 +9,7 @@ pipeline {
 
                 bat '"C:\\Users\\Shabana\\AppData\\Local\\Programs\\Python\\Python37\\python.exe" -m pip install pytest'
 
-                bat '"C:\\Users\\Shabana\\AppData\\Local\\Programs\\Python\\Python37\\python.exe" -m pytest pythonbasics\\test_addition.py'
+                bat '"C:\\Users\\Shabana\\AppData\\Local\\Programs\\Python\\Python37\\python.exe" -m pytest test_addition.py'
             }
         }
 
@@ -17,9 +17,9 @@ pipeline {
             steps {
                 echo 'Running Python programs...'
 
-                bat '"C:\\Users\\Shabana\\AppData\\Local\\Programs\\Python\\Python37\\python.exe" pythonbasics\\hello.py'
+                bat '"C:\\Users\\Shabana\\AppData\\Local\\Programs\\Python\\Python37\\python.exe" hello.py'
 
-                bat '"C:\\Users\\Shabana\\AppData\\Local\\Programs\\Python\\Python37\\python.exe" pythonbasics\\addition.py'
+                bat '"C:\\Users\\Shabana\\AppData\\Local\\Programs\\Python\\Python37\\python.exe" addition.py'
             }
         }
 
