@@ -5,25 +5,21 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                echo 'Checking Python...'
-                bat 'where python'
-                bat 'python --version'
+                echo 'Running Python tests...'
 
-                echo 'Installing pytest...'
-                bat 'python -m pip install pytest'
+                bat '"C:\\Users\\Shabana\\AppData\\Local\\Programs\\Python\\Python37\\python.exe" -m pip install pytest'
 
-                echo 'Running tests...'
-                bat 'python -m pytest test_addition.py'
+                bat '"C:\\Users\\Shabana\\AppData\\Local\\Programs\\Python\\Python37\\python.exe" -m pytest pythonbasics\\test_addition.py'
             }
         }
 
         stage('Run Scripts') {
             steps {
-                echo 'Running hello.py...'
-                bat 'python hello.py'
+                echo 'Running Python programs...'
 
-                echo 'Running addition.py...'
-                bat 'python addition.py'
+                bat '"C:\\Users\\Shabana\\AppData\\Local\\Programs\\Python\\Python37\\python.exe" pythonbasics\\hello.py'
+
+                bat '"C:\\Users\\Shabana\\AppData\\Local\\Programs\\Python\\Python37\\python.exe" pythonbasics\\addition.py'
             }
         }
 
