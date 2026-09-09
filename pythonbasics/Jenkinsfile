@@ -17,6 +17,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 echo 'Running Pytest tests...'
+                bat 'pip install pytest'
                 bat 'python -m pytest pythonbasics/test_addition.py'
             }
         }
