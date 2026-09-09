@@ -2,25 +2,54 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Clean Workspace') {
             steps {
-                echo 'Calculator build started'
+                cleanWs()
             }
         }
-        stage('Test') {
+
+        stage('Clone Repo') {
             steps {
-                echo 'Running unit tests...'
+                echo 'Cloning repository...'
+                // If using Git, replace URL with your repository URL:
+                // git branch: 'main', url: 'https://github.com/your-username/your-repo.git'
             }
         }
-        stage('Run Calculator') {
+
+        stage('Run Tests') {
             steps {
-                echo 'Executing application...'
+                echo 'Executing unit tests...'
+                // For Linux / macOS agents:
+                sh 'python3 -m pytest test_addition.py'
+                
+                // For Windows agents, use 'bat' instead:
+                // bat 'python -m pytest test_addition.py'
             }
         }
-        stage('Finish') {
+
+        stage('Run Scripts') {
             steps {
-                echo 'Pipeline completed successfully!'
+                echo 'Executing Python scripts...'
+                sh 'python3 hello.py'
+                sh 'python3 addition.py'
+                sh 'python3 for.py'
+                sh 'python3 reverse.py'
             }
+        }
+
+        stage('Cleanup') {
+            steps {
+                echo 'Pipeline completed successfully.'
+            }
+        }
+    }
+    
+    post {
+        always {
+            echo 'Build finished.'
+        }
+        failure {
+            echo 'Build failed. Check stage logs for details.'
         }
     }
 }
