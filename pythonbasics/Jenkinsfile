@@ -2,9 +2,24 @@ pipeline {
     agent any
 
     stages {
-        stage('Run Python') {
+        stage('Build') {
             steps {
-                bat 'python hello.py'
+                echo 'Calculator build started'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Running unit tests...'
+            }
+        }
+        stage('Run Calculator') {
+            steps {
+                echo 'Executing application...'
+            }
+        }
+        stage('Finish') {
+            steps {
+                echo 'Pipeline completed successfully!'
             }
         }
     }
