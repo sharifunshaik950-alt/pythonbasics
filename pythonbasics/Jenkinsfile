@@ -3,35 +3,27 @@ pipeline {
 
     stages {
 
-        stage('Clean Workspace') {
-            steps {
-                cleanWs()
-            }
-        }
-
-        stage('Clone Repo') {
-            steps {
-                echo 'Cloning repository...'
-            }
-        }
-
         stage('Run Tests') {
             steps {
+                echo 'Checking Python...'
+                bat 'where python'
+                bat 'python --version'
+
                 echo 'Installing pytest...'
-                bat '"C:\\Users\\Shabana\\AppData\\Local\\Programs\\Python\\Python37\\python.exe" -m pip install pytest'
+                bat 'python -m pip install pytest'
 
                 echo 'Running tests...'
-                bat '"C:\\Users\\Shabana\\AppData\\Local\\Programs\\Python\\Python37\\python.exe" -m pytest test_addition.py'
+                bat 'python -m pytest test_addition.py'
             }
         }
 
         stage('Run Scripts') {
             steps {
                 echo 'Running hello.py...'
-                bat '"C:\\Users\\Shabana\\AppData\\Local\\Programs\\Python\\Python37\\python.exe" hello.py'
+                bat 'python hello.py'
 
                 echo 'Running addition.py...'
-                bat '"C:\\Users\\Shabana\\AppData\\Local\\Programs\\Python\\Python37\\python.exe" addition.py'
+                bat 'python addition.py'
             }
         }
 
